@@ -26,5 +26,18 @@ public class CarritoControlador {
         //Carrito demo = new Carrito("idCarrito");
         return carritos.values();
     }
+    // Devuelve descripción del carrito
+    @GetMapping("/api/carrito/{idCarrito}")
+    public Carrito getCarrito(@PathVariable int idCarrito) {
+        return carritos.get(idCarrito);
+    }
+
+    //Modificar Carrito (Update de cualquier elemento de manera dinamica)
+    @PutMapping("/api/carrito/{idCarrito}")
+    public Carrito modificaCarrito(@PathVariable int idCarrito,
+                                   @RequestBody Carrito carrito) {
+        carritos.put(idCarrito, carrito);
+        return carrito;
+    }
 
 }
