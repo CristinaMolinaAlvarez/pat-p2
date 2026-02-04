@@ -4,6 +4,7 @@ import edu.comillas.icai.gitt.pat.spring.Cristina_P2.modelo.Carrito;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,4 +20,11 @@ public class CarritoControlador {
         carritos.put(carrito.getIdCarrito(), carrito);
         return carrito;
     }
+    // Devuelve lista carritos
+    @GetMapping("/api/carrito")
+    public Collection<Carrito> getCarritos() {
+        //Carrito demo = new Carrito("idCarrito");
+        return carritos.values();
+    }
+
 }
