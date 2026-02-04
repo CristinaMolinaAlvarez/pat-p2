@@ -1,0 +1,22 @@
+package edu.comillas.icai.gitt.pat.spring.Cristina_P2.controlador;
+
+import edu.comillas.icai.gitt.pat.spring.Cristina_P2.modelo.Carrito;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@RestController
+public class CarritoControlador {
+    private final Map<Integer, Carrito> carritos = new HashMap<>();
+
+    @PostMapping("/api/carrito")
+    @ResponseStatus(HttpStatus.CREATED)
+    // hay que añadir la anotación de la validation e importarla
+    public Carrito creaCarrito(@RequestBody Carrito carrito) {
+        // se implementar con persistencia en base de datos
+        carritos.put(carrito.getIdCarrito(), carrito);
+        return carrito;
+    }
+}
