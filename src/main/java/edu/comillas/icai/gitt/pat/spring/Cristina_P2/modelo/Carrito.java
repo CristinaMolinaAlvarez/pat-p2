@@ -1,14 +1,20 @@
 package edu.comillas.icai.gitt.pat.spring.Cristina_P2.modelo;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 
 public class Carrito {
-
+    //evitamos valores negativos en ids, uds y precios
+    @Positive
     private int idCarrito;
+    @Positive
     private int idArticulo;
+    @NotBlank
     private String descripcion;
+    @Positive
     private int unidades;
+    @Positive
     private double precioFinal;
-
 
     public Carrito(int idCarrito, int idArticulo, String descripcion, int unidades, double precioFinal) {
         this.idCarrito = idCarrito;
