@@ -12,7 +12,6 @@ import java.util.Map;
 @RestController
 public class CarritoControlador {
     //private final Map<Integer, Carrito> carritos = new HashMap<>();
-
     //recomendación Álvaro:  HM hardcodeado para no tener que meterlo cada vez en PostMan
     private final Map<Integer, Carrito> carritos = new HashMap<>(Map.of(
             1, new Carrito(1, 100, "Libro", 2, 30.0),
@@ -22,7 +21,7 @@ public class CarritoControlador {
 
     @PostMapping("/api/carrito")
     @ResponseStatus(HttpStatus.CREATED)
-    // hay que añadir la anotación de la validation e importarla
+    // añadimos la anotación de la validation e importamos
     public Carrito creaCarrito(@Valid @RequestBody Carrito carrito) {
         // se implementar con persistencia en base de datos
         carritos.put(carrito.getIdCarrito(), carrito);
