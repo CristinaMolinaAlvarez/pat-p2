@@ -5,7 +5,7 @@ Este proyecto implementa una API REST sencilla usando Spring Boot que permite re
 
 Cada carrito contiene un único producto, tal y como se indica en el enunciado de la práctica.
 
-La persistencia se simula mediante un `HashMap` en memoria.
+La persistencia se simula mediante un HashMap en memoria.
 
 ---
 
