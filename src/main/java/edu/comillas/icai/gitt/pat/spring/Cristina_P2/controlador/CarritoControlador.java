@@ -27,30 +27,27 @@ public class CarritoControlador {
         carritos.put(carrito.getIdCarrito(), carrito);
         return carrito;
     }
-    // Devuelve lista carritos
+    // Obtener lista carritos
     @GetMapping("/api/carrito")
     public Collection<Carrito> getCarritos() {
         //Carrito demo = new Carrito("idCarrito");
         return carritos.values();
     }
-    // Devuelve descripción del carrito
+    // Obtener descripción del carrito
     @GetMapping("/api/carrito/{idCarrito}")
     public Carrito getCarrito(@PathVariable int idCarrito) {
         return carritos.get(idCarrito);
     }
-
-    //Modificar Carrito (Update de cualquier elemento de manera dinamica)
+    // Modificar Carrito (Update de cualquier elemento de manera dinamica)
     @PutMapping("/api/carrito/{idCarrito}")
     public Carrito modificaCarrito(@PathVariable int idCarrito,
                                    @Valid @RequestBody Carrito carrito) {
         carritos.put(idCarrito, carrito);
         return carrito;
     }
-    //Borrar carrito
+    // Borrar carrito
     @DeleteMapping("/api/carrito/{idCarrito}")
     public void borrarCarrito(@PathVariable int idCarrito) {
         carritos.remove(idCarrito);
     }
-
-
 }
